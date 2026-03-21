@@ -7,10 +7,20 @@ Qin Ren<sup>1</sup>, Yufei Wang<sup>2,6</sup>, Lanqing Guo<sup>3</sup>, Wen Zhan
 <sup>1</sup>Stony Brook University &nbsp; <sup>2</sup>Nanyang Technological University &nbsp; <sup>3</sup>UT Austin<br/>
 <sup>4</sup>Johns Hopkins University &nbsp; <sup>5</sup>Texas A&M University &nbsp; <sup>6</sup>SparcAI Research
 
-[![arXiv](https://img.shields.io/badge/arXiv-2511.19917-b31b1b.svg)](https://arxiv.org/abs/2511.19917)
-[![Project Page](https://img.shields.io/badge/Project-Page-4285F4.svg)](https://y-research-sbu.github.io/LoTTS/)
-[![GitHub](https://img.shields.io/static/v1?label=GitHub&message=Y-Research-SBU%2FLoTTS&color=181717&logo=github)](https://github.com/Y-Research-SBU/LoTTS)
-[![Code](https://img.shields.io/badge/Code-Coming%20Soon-F9A825.svg)](https://github.com/Y-Research-SBU/LoTTS)
+<p>
+  <a href="https://arxiv.org/abs/2511.19917">
+    <img src="https://img.shields.io/badge/ArXiv-2511.19917-B31B1B?style=flat-square&logo=arxiv" alt="arXiv">
+  </a>
+  <a href="https://y-research-sbu.github.io/LoTTS/">
+    <img src="https://img.shields.io/badge/Project-Website-4285F4?style=flat-square&logo=googlechrome" alt="Project Page">
+  </a>
+  <a href="https://github.com/Y-Research-SBU/LoTTS">
+    <img src="https://img.shields.io/badge/GitHub-Coming%20Soon-006400?style=flat-square&logo=github" alt="GitHub">
+  </a>
+  <a href="https://github.com/Y-Research-SBU/LoTTS">
+    <img src="https://img.shields.io/badge/Hugging%20Face-Coming%20Soon-F9A825?style=flat-square&logo=codepen" alt="Code">
+  </a>
+</p>
 
 </div>
 
