@@ -33,7 +33,7 @@ Test-time scaling for diffusion models usually perturbs the *entire* image, yet 
 
 > Defects are typically *localized*: **additional compute is better spent on weak regions than on restarting the whole sample.**
 
-**LoTTS** is training-free: attention-derived masks for localization, masked resampling with consistency controls—see **Method**; **SD2.1** / **SDXL** / **FLUX** experiments in **Results**.
+**LoTTS** is training-free: attention-derived masks for localization, masked resampling with consistency controls.
 
 - **Localization.** Contrast cross-/self-attention under quality prompts; form a coherent defect mask.
 - **Resampling.** Noise injection and denoising inside the mask; brief global harmonization.
