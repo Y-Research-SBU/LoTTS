@@ -1,9 +1,8 @@
 <div align="center">
 
-**Scale Where It Matters:**  
-**Training-Free Localized Scaling for Diffusion Models**
+<h1>Scale Where It Matters:<br/>Training-Free Localized Scaling for Diffusion Models</h1>
 
-### *LoTTS*
+<h3><em>LoTTS</em></h3>
 
 Qin Ren<sup>1</sup>, Yufei Wang<sup>2,6</sup>, Lanqing Guo<sup>3</sup>, Wen Zhang<sup>4</sup>, Zhiwen Fan<sup>5</sup>, Chenyu You<sup>1</sup>
 
