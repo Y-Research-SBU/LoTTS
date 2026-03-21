@@ -2,8 +2,6 @@
 
 <h1>Scale Where It Matters:<br/>Training-Free Localized Scaling for Diffusion Models</h1>
 
-<h3><em>LoTTS</em></h3>
-
 Qin Ren<sup>1</sup>, Yufei Wang<sup>2,6</sup>, Lanqing Guo<sup>3</sup>, Wen Zhang<sup>4</sup>, Zhiwen Fan<sup>5</sup>, Chenyu You<sup>1</sup>
 
 <sup>1</sup>Stony Brook University &nbsp; <sup>2</sup>Nanyang Technological University &nbsp; <sup>3</sup>UT Austin &nbsp; <sup>4</sup>Johns Hopkins University &nbsp; <sup>5</sup>Texas A&M University &nbsp; <sup>6</sup>SparcAI Research
