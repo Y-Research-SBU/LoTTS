@@ -31,7 +31,7 @@ Qin Ren<sup>1</sup>, Yufei Wang<sup>2,6</sup>, Lanqing Guo<sup>3</sup>, Wen Zhan
 
 <div align="center">
 <img src="docs/figures/figure1_main.png" width="99%">
-<br><br>
+<br>
 <p><b>Where should extra inference go?</b> Typical TTS perturbs or resamples the <i>whole</i> image, even when only a small region is wrong. <b>LoTTS</b> uses quality-aware attention to find those weak regions and runs test-time scaling <b>only there</b>, leaving high-quality pixels fixed—training-free, and a much smaller search space.</p>
 </div>
 
