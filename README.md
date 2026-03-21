@@ -29,11 +29,10 @@ Qin Ren<sup>1</sup>, Yufei Wang<sup>2,6</sup>, Lanqing Guo<sup>3</sup>, Wen Zhan
 
 
 
-
 <div align="center">
-<img src="docs/figures/figure1_main.png" width="95%">
-<br>
-<sub><b>Where should extra inference go?</b> Typical TTS perturbs or resamples the <i>whole</i> image, even when only a small region is wrong. <b>LoTTS</b> uses quality-aware attention to find those weak regions and runs test-time scaling <b>only there</b>, leaving high-quality pixels fixed—training-free, and a much smaller search space.</sub>
+<img src="docs/figures/figure1_main.png" width="99%">
+<br><br>
+<p><b>Where should extra inference go?</b> Typical TTS perturbs or resamples the <i>whole</i> image, even when only a small region is wrong. <b>LoTTS</b> uses quality-aware attention to find those weak regions and runs test-time scaling <b>only there</b>, leaving high-quality pixels fixed—training-free, and a much smaller search space.</p>
 </div>
 
 ## Overview
@@ -51,9 +50,9 @@ Test-time scaling for diffusion models usually perturbs the *entire* image, yet 
 ## Method
 
 <div align="center">
-<img src="docs/figures/figure2_overview.png" width="95%">
+<img src="docs/figures/figure2_overview.png" width="99%">
 <br>
-<sub><b>Overview of LoTTS.</b> Given a text prompt, LoTTS first generates candidate images from different noise seeds. It then localizes defective regions using high-/low-quality prompt contrast and constructs a quality-aware mask. Noise is injected only inside the masked regions, followed by localized denoising with spatial and temporal consistency. A verifier finally selects the best refined sample.</sub>
+<b>Overview of LoTTS.</b> Given a text prompt, LoTTS first generates candidate images from different noise seeds. It then localizes defective regions using high-/low-quality prompt contrast and constructs a quality-aware mask. Noise is injected only inside the masked regions, followed by localized denoising with spatial and temporal consistency. A verifier finally selects the best refined sample.
 </div>
 
 <br>
