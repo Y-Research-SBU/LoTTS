@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html>
+
+<script type="text/javascript" charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+<style type="text/css">
+body {
+    font-family: "Titillium Web", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: 1000px;
+    width: 70%;
+}
+
+h1 {
+    font-weight: 300;
+    line-height: 1.15em;
+    text-align: center;
+    font-size: 42px;
+    font-weight: 500;
+}
+
+h2 {
+    font-size: 1.65em;
+    font-weight: 400;
+    margin: 24px 0px 8px 0px;
+    text-align: left;
+}
+
+h3 {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin: 24px 0px 8px 0px;
+    text-align: left;
+}
+
+a:link, a:visited {
+    color: #5b21b6;
+    text-decoration: none;
+}
+a:hover {
+    color: #7c3aed;
+}
+
+.paper-title {
+    padding: 1px 0px 1px 0px;
+}
+
+section {
+    margin: 40px 0px 40px 0px;
+    text-align: justify;
+    clear: both;
+}
+
+.author-row-new {
+    text-align: center;
+}
+
+.author-row-new a {
+    display: inline-block;
+    font-size: 22px;
+    padding: 5px;
+}
+
+.author-row-new sup {
+    color: #313436;
+    font-size: 12px;
+}
+
+.affiliations-new {
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 24px;
+}
+
+.affil-row {
+    margin-top: 20px;
+}
+
+.venue {
+    font-size: 22px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+hr {
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ddd;
+    margin: 0;
+}
+
+p {
+    line-height: 1.5em;
+}
+
+.caption {
+    font-size: inherit;
+    color: inherit;
+    margin-top: 12px;
+    margin-bottom: 20px;
+    line-height: 1.5em;
+    text-align: left;
+}
+
+figure {
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.figure img {
+    width: 100%;
+}
+
+#bibtex pre {
+    font-size: 14px;
+    background-color: #eee;
+    padding: 24px;
+}
+
+pre {
+    font-size: 0.9em;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 3px;
+    background-color: rgb(235, 235, 235);
+    overflow-x: auto;
+}
+
+.paper-btn-parent {
+    display: flex;
+    justify-content: center;
+    margin: 28px 0px;
+    gap: 40px;
+    font-size: 22px;
+}
+
+.paper-btn, .github-btn {
+    transition: all 0.2s;
+}
+
+.paper-btn:hover, .github-btn:hover {
+    color: #7c3aed;
+    transform: translateY(-2px);
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+/* Image grid layouts */
+.image-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+}
+
+.image-grid img {
+    width: 100%;
+}
+
+.image-grid-three {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    width: 90%;
+    justify-items: center;
+    margin: 0 auto;
+}
+
+.image-grid-three img {
+    width: 100%;
+}
+
+.image-grid-tab {
+    text-align: center;
+    justify-content: center;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 1.22fr;
+    gap: 10px;
+    width: 90%;
+    justify-items: center;
+    margin: 0 auto;
+}
+
+.image-grid-tab img {
+    width: 100%;
+}
+
+/* News items */
+.news-item {
+    padding: 3px 0;
+    font-size: 18px;
+}
+
+/* Highlight box */
+.highlight-box {
+    background-color: #f8f5ff;
+    border-left: 4px solid #5b21b6;
+    padding: 24px 30px;
+    border-radius: 0 6px 6px 0;
+    margin: 24px 0;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.highlight-box h4 {
+    color: #5b21b6;
+    margin-bottom: 8px;
+    margin-top: 18px;
+    font-size: 18px;
+}
+
+.highlight-box h4:first-child {
+    margin-top: 0;
+}
+
+/* Key points grid */
+.key-points {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 16px 0;
+}
+
+.key-point {
+    background-color: #f8f5ff;
+    border-radius: 8px;
+    padding: 16px 18px;
+    border: 1px solid #e5e1f0;
+}
+
+.key-point .icon {
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+}
+
+.key-point h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.key-point p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 0;
+    line-height: 1.5em;
+}
+
+/* Results table */
+.table-wrap {
+    overflow-x: auto;
+    margin: 16px 0;
+}
+
+table.results {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+}
+
+table.results th,
+table.results td {
+    padding: 8px 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+table.results thead th {
+    background: #f8f5ff;
+    font-weight: 600;
+    border-bottom: 2px solid #5b21b6;
+}
+
+table.results .method-cell {
+    text-align: left;
+}
+
+table.results .model-cell {
+    font-weight: 600;
+    text-align: left;
+    vertical-align: middle;
+}
+
+table.results tr.ours {
+    background: #f3eaff;
+    font-weight: 600;
+}
+
+table.results .best {
+    color: #5b21b6;
+    font-weight: 700;
+}
+
+blockquote {
+    background-color: #f8f5ff;
+    padding: 20px 26px;
+    margin: 16px 0;
+    border-radius: 6px;
+    border-left: 4px solid #5b21b6;
+    font-size: 18px;
+    line-height: 1.5em;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Overview (REPA-style scan-friendly block) */
+#overview .overview-lead {
+    margin: 0 0 12px 0;
+    line-height: 1.55;
+}
+
+#overview blockquote {
+    margin: 18px 0;
+}
+
+#overview blockquote.overview-thesis {
+    font-size: 1.06em;
+    line-height: 1.55;
+}
+
+#overview .overview-points {
+    margin: 16px 0 8px 0;
+    padding-left: 1.35em;
+    line-height: 1.55;
+    text-align: left;
+}
+
+#overview .overview-points li {
+    margin: 8px 0;
+}
+
+#overview .overview-points li:first-child {
+    margin-top: 4px;
+}
+</style>
+
+<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,600,400italic,600italic,300,300italic' rel='stylesheet' type='text/css'>
+
+<head>
+    <meta charset="UTF-8">
+    <title>LoTTS: Scale Where It Matters — Training-Free Localized Scaling for Diffusion Models</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:description" content="LoTTS — the first fully training-free localized test-time scaling framework for diffusion models."/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LoTTS: Scale Where It Matters — Training-Free Localized Scaling for Diffusion Models">
+</head>
+
+<body>
+<div class="container">
+
+    <!-- ============================================================ -->
+    <!-- TITLE & AUTHORS                                              -->
+    <!-- ============================================================ -->
+    <div class="paper-title">
+        <h1>
+            <font color="#5b21b6">Scale Where It Matters:</font><br/>
+            Training-Free Localized Scaling for Diffusion Models
+        </h1>
+    </div>
+
+    <div id="authors">
+        <center>
+            <div class="author-row-new">
+                <a href="mailto:qin.ren@stonybrook.edu">Qin Ren<sup>1</sup></a>,
+                <a href="#">Yufei Wang<sup>2,6</sup></a>,
+                <a href="#">Lanqing Guo<sup>3</sup></a>,
+                <a href="#">Wen Zhang<sup>4</sup></a>,
+                <a href="#">Zhiwen Fan<sup>5</sup></a>,
+                <a href="#">Chenyu You<sup>1</sup></a>
+            </div>
+        </center>
+        <center>
+            <div class="affiliations-new">
+                <span><sup>1</sup>Stony Brook University</span>&nbsp;&nbsp;&nbsp;
+                <span><sup>2</sup>Nanyang Technological University</span>&nbsp;&nbsp;&nbsp;
+                <span><sup>3</sup>UT Austin</span><br>
+                <span><sup>4</sup>Johns Hopkins University</span>&nbsp;&nbsp;&nbsp;
+                <span><sup>5</sup>Texas A&amp;M University</span>&nbsp;&nbsp;&nbsp;
+                <span><sup>6</sup>SparcAI Research</span>
+            </div>
+            <!-- <div class="affil-row">
+                <div class="venue text-center"><b>Under Review</b></div>
+            </div> -->
+        </center>
+
+        <div style="clear: both">
+            <div class="paper-btn-parent">
+                <a class="paper-btn" href="https://arxiv.org/abs/2511.19917">
+                    <span class="ai ai-arxiv"></span>
+                    Paper
+                </a>
+                <a class="github-btn" href="https://github.com/Y-Research-SBU/LoTTS">
+                    <span class="fab fa-github"></span>
+                    Code
+                </a>
+            </div>
+        </div>
+
+        <!-- Teaser Figure -->
+        <div class="figure">
+            <img src="figures/figure1_main.png" alt="LoTTS Teaser — Global vs. Localized Test-Time Scaling">
+        </div>
+        <p class="caption text-center">
+            <b>Where should extra inference go?</b> Typical TTS perturbs or resamples the <em>whole</em> image, even when only a small region is wrong.
+            <b>LoTTS</b> uses quality-aware attention to find those weak regions and runs test-time scaling <b>only there</b>, leaving high-quality pixels fixed—training-free, and a much smaller search space.
+        </p>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- NEWS                                                         -->
+    <!-- ============================================================ -->
+    <section id="news">
+        <h2>News</h2>
+        <hr>
+        <div class="row">
+            <div class="news-item"><span class="material-icons"> event </span> [Mar 2026] Code and project page released.</div>
+            <div class="news-item"><span class="material-icons"> event </span> [Nov 2025] Paper available on <a href="https://arxiv.org/abs/2511.19917">arXiv</a>.</div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- HIGHLIGHTS                                                   -->
+    <!-- ============================================================ -->
+    <!-- <section>
+        <h2>Highlights</h2>
+        <hr>
+        <div class="key-points">
+            <div class="key-point">
+                <div class="icon">🎯</div>
+                <h4>Localized Refinement</h4>
+                <p>Identifies defective regions with quality-aware attention masks and selectively resamples only where needed.</p>
+            </div>
+            <div class="key-point">
+                <div class="icon">⚡</div>
+                <h4>2–4× More Efficient</h4>
+                <p>Achieves the same quality as Best-of-<em>N</em> with 2–4× fewer samples, drastically cutting GPU cost.</p>
+            </div>
+            <div class="key-point">
+                <div class="icon">🔓</div>
+                <h4>Fully Training-Free</h4>
+                <p>No fine-tuning, no external supervision. Works directly on any pre-trained diffusion model.</p>
+            </div>
+            <div class="key-point">
+                <div class="icon">🧩</div>
+                <h4>Universal & Plug-and-Play</h4>
+                <p>Drop-in support for <b>SD 2.1</b>, <b>SDXL</b>, and <b>FLUX</b> — both U-Net and Transformer architectures.</p>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- ============================================================ -->
+    <!-- OVERVIEW                                                     -->
+    <!-- ============================================================ -->
+    <section id="overview">
+        <h2>Overview</h2>
+        <hr>
+        <p class="overview-lead">
+            Test-time scaling for diffusion models usually perturbs the <em>entire</em> image, yet quality is often uneven across the canvas.
+        </p>
+        <blockquote class="overview-thesis">
+            Defects are typically <em>localized</em>: <b>additional compute is better spent on weak regions than on restarting the whole sample.</b>
+        </blockquote>
+        <p class="overview-lead">
+            <b>LoTTS</b> is training-free: attention-derived masks for localization, masked resampling with consistency controls—see <b>Method</b>; <b>SD2.1</b> / <b>SDXL</b> / <b>FLUX</b> experiments in <b>Results</b>.
+        </p>
+        <ul class="overview-points">
+            <li><b>Localization.</b> Contrast cross-/self-attention under quality prompts; form a coherent defect mask.</li>
+            <li><b>Resampling.</b> Noise injection and denoising inside the mask; brief global harmonization.</li>
+            <li><b>Efficiency.</b> Plug-and-play across backbones; ~<b>2–4×</b> fewer samples than Best-of-<em>N</em> at matched budgets.</li>
+        </ul>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- METHOD OVERVIEW                                              -->
+    <!-- ============================================================ -->
+    <section>
+        <h2>Method</h2>
+        <hr>
+        <!-- <p>
+            LoTTS consists of three core modules:
+            <b>Defect Localization</b>,
+            <b>Consistency Maintenance</b>, and
+            <b>DFS Search</b>.
+        </p> -->
+
+        <h3>Overview of LoTTS</h3>
+        <p class="caption text-center">
+            Given a text prompt, LoTTS first generates candidate images from different noise seeds.
+            It then localizes defective regions using high-/low-quality prompt contrast and constructs a quality-aware mask.
+            Noise is injected only inside the masked regions, followed by localized denoising with spatial and temporal consistency.
+            A verifier finally selects the best refined sample.
+        </p>
+        <div class="figure">
+            <img src="figures/figure2_overview.png" alt="LoTTS Overview">
+        </div>
+
+        <!-- Defect Localization -->
+        <h3>Defect Localization</h3>
+        <!-- <p>
+            LoTTS leverages the intrinsic attention signals of diffusion models to localize defects in four stages:
+        </p> -->
+
+        <!-- <div class="highlight-box">
+            <h4>① Prompt-driven Discrimination</h4>
+            <p>Construct positive/negative quality prompts and compute the contrastive cross-attention difference:
+                \(\mathrm{CA}_{\mathrm{diff}} = \mathrm{CA}_{\mathrm{neg}} - \mathrm{CA}_{\mathrm{pos}}\)</p>
+
+            <h4>② Context-aware Propagation</h4>
+            <p>Smooth the raw difference map via self-attention propagation:
+                \(\mathrm{CA}' = \mathrm{SA} \times \mathrm{CA}\)</p>
+
+            <h4>③ Semantic-guided Reweighting</h4>
+            <p>Combine the contrastive map with original prompt attention as a foreground prior:
+                \(P = \mathrm{CA}'_{\mathrm{diff}} + \lambda \, \mathrm{CA}'_{\mathrm{orig}}\)</p>
+
+            <h4>④ Quality-aware Mask Generation</h4>
+            <p>Binarize by keeping the top \(r\)% of spatial positions:
+                \(M = \mathbb{I}(P > \mathrm{Perc}(P, 1-r))\)</p>
+        </div> -->
+
+        <p class="caption text-center">
+            <b>Defect Localization Overview.</b>
+            From extracted cross-attention maps, the pipeline produces coherent defect masks through
+            prompt-driven discrimination, context-aware propagation, semantic-guided reweighting,
+            and quality-aware mask generation.
+        </p>
+        <div class="figure">
+            <img src="figures/figure3_attn.png" alt="Defect Localization Pipeline">
+        </div>
+
+        <!-- Consistency Maintenance -->
+        <h3>Consistency Maintenance</h3>
+        <!-- <p>
+            With reliable defect masks, LoTTS resamples only the identified regions while maintaining consistency:
+        </p> -->
+
+        <!-- <div class="highlight-box">
+            <h4>Spatial Consistency</h4>
+            <p>Inject comparable noise into both masked and unmasked areas to avoid boundary seams.</p>
+
+            <h4>Temporal Consistency</h4>
+            <p>Resume denoising from an intermediate step \(t_0\) (not from pure noise) to retain global content while
+                enabling local corrections.</p>
+
+            <h4>Holistic Consistency</h4>
+            <p>After localized refinement, apply a few global denoising steps (without the mask) to harmonize style and
+                structure across the entire image.</p>
+        </div> -->
+
+        <p class="caption text-center">
+            <b>Localized Resampling Process.</b>
+            <em>Initial Denoising</em>: standard denoising produces \(\mathbf{x}_0\) with localized artifacts (IR = 0.54).
+            <em>Localized Resample</em>: LoTTS injects noise within the defect mask \(\mathbf{M}\) at step \(t_0\),
+            then performs <em>Masked Refinement</em> followed by <em>Global Integration</em>,
+            yielding \(\tilde{\mathbf{x}}_0\) with improved quality (IR = 1.03).
+        </p>
+        <div class="figure">
+            <img src="figures/figure3_resample_process.png" alt="Localized Resampling Process">
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- RESULTS                                                      -->
+    <!-- ============================================================ -->
+    <section>
+        <h2>Results</h2>
+        <hr>
+
+        <h3>Quantitative Comparison</h3>
+        <p>
+            LoTTS consistently outperforms Resampling, Best-of-<em>N</em>, and Particle Sampling under matched NFE budgets
+            across three architectures (SD2.1, SDXL, FLUX) and three benchmarks.
+        </p>
+
+        <div class="table-wrap">
+            <table class="results">
+                <thead>
+                    <tr>
+                        <th rowspan="2">Model</th>
+                        <th rowspan="2">Method</th>
+                        <th colspan="4" style="border-bottom:1px solid #ddd;">Pick-a-Pic</th>
+                        <th colspan="4" style="border-bottom:1px solid #ddd;">DrawBench</th>
+                        <th colspan="2" style="border-bottom:1px solid #ddd;">COCO2014</th>
+                    </tr>
+                    <tr>
+                        <th>HPS↑</th><th>AES↑</th><th>Pick↑</th><th>IR↑</th>
+                        <th>HPS↑</th><th>AES↑</th><th>Pick↑</th><th>IR↑</th>
+                        <th>FID↓</th><th>CLIP↑</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- SD2.1 -->
+                    <tr>
+                        <td class="model-cell" rowspan="4">SD2.1</td>
+                        <td class="method-cell">Resampling</td>
+                        <td>20.44</td><td>5.377</td><td>20.32</td><td>0.236</td>
+                        <td>21.34</td><td>5.456</td><td>20.23</td><td>0.244</td>
+                        <td>15.33</td><td>0.201</td>
+                    </tr>
+                    <tr>
+                        <td class="method-cell">Best-of-<em>N</em></td>
+                        <td>21.56</td><td>5.534</td><td>21.04</td><td>0.470</td>
+                        <td>22.45</td><td>5.589</td><td>20.59</td><td>0.446</td>
+                        <td>13.21</td><td>0.252</td>
+                    </tr>
+                    <tr>
+                        <td class="method-cell">Particle Sampling</td>
+                        <td>23.44</td><td class="best">5.980</td><td>21.30</td><td>0.530</td>
+                        <td>22.19</td><td>5.790</td><td>21.23</td><td>0.520</td>
+                        <td>12.34</td><td>0.260</td>
+                    </tr>
+                    <tr class="ours">
+                        <td class="method-cell">LoTTS (Ours)</td>
+                        <td class="best">24.52</td><td>5.805</td><td class="best">21.32</td><td class="best">0.680</td>
+                        <td class="best">23.29</td><td class="best">5.911</td><td class="best">21.47</td><td class="best">0.698</td>
+                        <td class="best">10.89</td><td class="best">0.263</td>
+                    </tr>
+                    <!-- SDXL -->
+                    <tr>
+                        <td class="model-cell" rowspan="4">SDXL</td>
+                        <td class="method-cell">Resampling</td>
+                        <td>23.44</td><td>6.011</td><td>21.18</td><td>0.680</td>
+                        <td>23.84</td><td>6.034</td><td>21.09</td><td>0.657</td>
+                        <td>9.56</td><td>0.234</td>
+                    </tr>
+                    <tr>
+                        <td class="method-cell">Best-of-<em>N</em></td>
+                        <td>24.54</td><td>6.198</td><td>22.01</td><td>0.790</td>
+                        <td>25.27</td><td>6.238</td><td>22.23</td><td>0.756</td>
+                        <td>8.34</td><td>0.268</td>
+                    </tr>
+                    <tr>
+                        <td class="method-cell">Particle Sampling</td>
+                        <td>25.33</td><td>6.235</td><td>22.05</td><td>0.865</td>
+                        <td>26.46</td><td>6.233</td><td>22.31</td><td>0.844</td>
+                        <td>7.99</td><td>0.271</td>
+                    </tr>
+                    <tr class="ours">
+                        <td class="method-cell">LoTTS (Ours)</td>
+                        <td class="best">28.23</td><td class="best">6.304</td><td class="best">22.30</td><td class="best">1.102</td>
+                        <td class="best">28.90</td><td class="best">6.321</td><td class="best">22.38</td><td class="best">1.111</td>
+                        <td class="best">7.33</td><td class="best">0.297</td>
+                    </tr>
+                    <!-- FLUX -->
+                    <tr>
+                        <td class="model-cell" rowspan="4">FLUX</td>
+                        <td class="method-cell">Resampling</td>
+                        <td>29.34</td><td>6.298</td><td>22.07</td><td>1.038</td>
+                        <td>29.28</td><td>6.223</td><td>22.05</td><td>1.100</td>
+                        <td>7.01</td><td>0.282</td>
+                    </tr>
+                    <tr>
+                        <td class="method-cell">Best-of-<em>N</em></td>
+                        <td>30.23</td><td>6.299</td><td>22.89</td><td>1.235</td>
+                        <td>30.46</td><td>6.290</td><td>22.33</td><td>1.221</td>
+                        <td>6.34</td><td>0.306</td>
+                    </tr>
+                    <tr>
+                        <td class="method-cell">Particle Sampling</td>
+                        <td>31.56</td><td class="best">6.532</td><td class="best">23.31</td><td>1.450</td>
+                        <td>32.28</td><td>6.523</td><td>22.90</td><td>1.445</td>
+                        <td>6.02</td><td>0.332</td>
+                    </tr>
+                    <tr class="ours">
+                        <td class="method-cell">LoTTS (Ours)</td>
+                        <td class="best">33.33</td><td>6.501</td><td>23.04</td><td class="best">1.605</td>
+                        <td class="best">33.90</td><td class="best">6.890</td><td class="best">23.21</td><td class="best">1.623</td>
+                        <td class="best">5.31</td><td class="best">0.351</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- <p class="caption text-center">
+            All methods use the same verifier (ImageReward) to select the best candidate under matched NFE budgets.
+            <span class="best">Purple</span> indicates the best result in each column per model.
+        </p> -->
+
+        <h3>Qualitative Comparison</h3>
+        <p class="caption text-center">
+            <b>Qualitative results on challenging text-to-image prompts.</b>
+            Compared to Resampling, Best-of-<em>N</em>, and Particle Sampling, LoTTS better follows complex prompts.
+            <span style="color:#16a34a;">Green</span> borders indicate high-quality generations,
+            <span style="color:#dc2626;">red</span> mark lower-quality ones, and
+            <span style="color:#92400e;">brown</span> shows the initial image used as the starting point of localized refinement.
+        </p>
+        <div class="figure">
+            <img src="figures/figure4_method_compare.png" alt="Qualitative comparison">
+        </div>
+
+        <h3>Localized Refinement</h3>
+        <p class="caption text-center">
+            <b>Localized Refinement on SD2.1.</b>
+            LoTTS corrects diverse localized artifacts (e.g., distorted hands and faces).
+            Heatmaps show per-region artifact scores, and binary masks indicate the regions selected for refinement.
+        </p>
+        <div class="figure">
+            <img src="figures/figure5_Refine_SD21.png" alt="Localized refinement examples">
+        </div>
+
+        <h3>Scaling Efficiency</h3>
+        <p class="caption text-center">
+            <b>(1) Parameter sensitivity analysis</b> — LoTTS maintains stable improvements across varying \(k\), \(r\), and \(t_0\).
+            <b>(2) Scaling Comparison</b> — LoTTS reaches the same HPS as Best-of-<em>N</em> with far fewer samples,
+            yielding <b>2.8–4× speedup</b>.
+        </p>
+        <div class="figure">
+            <img src="figures/figure8_parameter_scaling.png" alt="Parameter sensitivity and scaling comparison">
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- ABLATIONS                                                    -->
+    <!-- ============================================================ -->
+    <section>
+        <h2>Ablation Studies</h2>
+        <hr>
+
+        <p class="caption text-center">
+            <b>(1) Ablation of Mask Generation.</b>
+            Removing any component consistently degrades all four metrics.
+            <b>(2) Prompt Design.</b> Radar chart comparing two prompt strategies: LoTTS is robust to prompt phrasing.
+        </p>
+        <div class="figure" style="width:75%; margin:0 auto;">
+            <img src="figures/figure7_ablation.png" alt="Ablation studies">
+        </div>
+
+        <p class="caption text-center">
+            <b>Comparison with MUSIQ quality maps.</b>
+            Each triplet shows the original image, our attention heatmap, and the MUSIQ heatmap (red = lower quality).
+            Both methods consistently highlight similar low-quality regions — despite ours being entirely training-free.
+        </p>
+        <div class="figure" style="width:75%; margin:16px auto 0;">
+            <img src="figures/figure6_maskComparison.png" alt="Mask comparison with MUSIQ">
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CITATION                                                     -->
+    <!-- ============================================================ -->
+    <section id="bibtex">
+        <h2>Citation</h2>
+        <hr>
+        <pre><code>@article{ren2025lotts,
+  title   = {Scale Where It Matters: Training-Free Localized
+             Scaling for Diffusion Models},
+  author  = {Ren, Qin and Wang, Yufei and Guo, Lanqing
+             and Zhang, Wen and Fan, Zhiwen and You, Chenyu},
+  journal = {arXiv preprint arXiv:2511.19917},
+  year    = {2025}
+}</code></pre>
+    </section>
+
+</div>
+</body>
+</html>

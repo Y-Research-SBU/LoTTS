@@ -7,7 +7,7 @@ Qin Ren<sup>1</sup>, Yufei Wang<sup>2,6</sup>, Lanqing Guo<sup>3</sup>, Wen Zhan
 <sup>1</sup>Stony Brook University &nbsp; <sup>2</sup>Nanyang Technological University &nbsp; <sup>3</sup>UT Austin &nbsp; <sup>4</sup>Johns Hopkins University &nbsp; <sup>5</sup>Texas A&M University &nbsp; <sup>6</sup>SparcAI Research
 
 [![arXiv](https://img.shields.io/badge/arXiv-2511.19917-b31b1b.svg)](https://arxiv.org/abs/2511.19917)
-[![Project Page](https://img.shields.io/badge/Project-Page-4285F4.svg)](https://soonera.github.io/LOTTS_webpage/)
+[![Project Page](https://img.shields.io/badge/Project-Page-4285F4.svg)](https://y-research-sbu.github.io/LoTTS/)
 [![GitHub](https://img.shields.io/static/v1?label=GitHub&message=Y-Research-SBU%2FLoTTS&color=181717&logo=github)](https://github.com/Y-Research-SBU/LoTTS)
 [![Code](https://img.shields.io/badge/Code-Coming%20Soon-F9A825.svg)](https://github.com/Y-Research-SBU/LoTTS)
 
@@ -20,7 +20,7 @@ Qin Ren<sup>1</sup>, Yufei Wang<sup>2,6</sup>, Lanqing Guo<sup>3</sup>, Wen Zhan
 
 
 <div align="center">
-<img src="figures/figure1_main.png" width="95%">
+<img src="docs/figures/figure1_main.png" width="95%">
 <br>
 <sub><b>Where should extra inference go?</b> Typical TTS perturbs or resamples the <i>whole</i> image, even when only a small region is wrong. <b>LoTTS</b> uses quality-aware attention to find those weak regions and runs test-time scaling <b>only there</b>, leaving high-quality pixels fixed—training-free, and a much smaller search space.</sub>
 </div>
@@ -40,7 +40,7 @@ Test-time scaling for diffusion models usually perturbs the *entire* image, yet 
 ## Method
 
 <div align="center">
-<img src="figures/figure2_overview.png" width="95%">
+<img src="docs/figures/figure2_overview.png" width="95%">
 <br>
 <sub><b>Overview of LoTTS.</b> Given a text prompt, LoTTS first generates candidate images from different noise seeds. It then localizes defective regions using high-/low-quality prompt contrast and constructs a quality-aware mask. Noise is injected only inside the masked regions, followed by localized denoising with spatial and temporal consistency. A verifier finally selects the best refined sample.</sub>
 </div>
