@@ -18,7 +18,7 @@ Qin Ren<sup>1</sup>, Yufei Wang<sup>2,6</sup>, Lanqing Guo<sup>3</sup>, Wen Zhan
     <img src="https://img.shields.io/badge/GitHub-Coming%20Soon-006400?style=flat-square&logo=github" alt="GitHub">
   </a>
   <a href="https://github.com/Y-Research-SBU/LoTTS">
-    <img src="https://img.shields.io/badge/Hugging%20Face-Coming%20Soon-F9A825?style=flat-square&logo=codepen" alt="Code">
+    <img src="https://img.shields.io/badge/Hugging%20Face-Coming%20Soon-F9A825?style=flat-square&logo=huggingface" alt="Hugging Face">
   </a>
 </p>
 
